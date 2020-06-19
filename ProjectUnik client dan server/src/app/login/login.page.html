@@ -1,0 +1,28 @@
+<ion-header>
+  
+    <ion-title>Project Unik</ion-title>
+
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+  <img src="/assets/Login.jpg"/>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <section>
+      <ion-button color="warning" expand="block" fill="outline" (click)="login()">Login</ion-button>
+    </section>
+    <section>
+      <ion-button color="warning" expand="block"  routerLink="/register">Register</ion-button>
+    </section>
+    <ion-button color="warning" fill="clear" routerLink="/forget">Forgot Password?</ion-button>
+  </ion-list>
+</div>
+</ion-content>

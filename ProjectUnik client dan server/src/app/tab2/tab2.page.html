@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="warning"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="createServiceForm" (submit)="addTodo()">
+    <ion-item>
+      <ion-label stacked>Tipe Jasa</ion-label>
+      <ion-input
+        formControlName="jenis"
+        type="text"
+        placeholder="Mau Jasa Apa?"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Siapa namamu?</ion-label>
+      <ion-input
+        formControlName="penyumbang"
+        type="text"
+        placeholder="Siapa namamu?"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Waktu Pengerjaan</ion-label>
+      <ion-input
+        formControlName="name"
+        type="text"
+        placeholder="Mau berapa lama waktu pengerjaan?"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Description Service</ion-label>
+      <ion-textarea
+        formControlName="serviceDescription"
+        type="text"
+        placeholder="Deskripsi Jasa?"
+      >
+      </ion-textarea>
+    </ion-item>
+    <div class="ion-text-center">
+<h4>Masukkan Referensi Foto</h4>
+</div>
+    <ion-item lines="none">
+      <input type="file" name="inputFile" (change)="chooseFile($event)" required>
+    </ion-item>
+
+    <ion-button color="warning" expand="block" type="submit" [disabled]="!createServiceForm.valid">
+      Add Service
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List Limbah</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/create">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+<ion-slides [options]="sliderConfig">
+<ion-slide *ngFor="let limbah of limbahList | async"
+routerLink="/detail/{{limbah.id}}">
+  <ion-card>
+  <ion-card-header>
+    {{ limbah.name }}
+      <img [src]="limbah.imageUrl" alt="">
+  </ion-card-header>
+  <ion-card-content>
+    Deskripsi : {{ limbah.limbahDescription }}
+  </ion-card-content>
+</ion-card>
+</ion-slide>
+</ion-slides>
+
+<ion-slides [options]="sliderConfigg">
+  <ion-slide *ngFor="let limbah of limbahList | async"
+  routerLink="/detail/{{limbah.id}}">
+    <ion-card>
+    <ion-card-header>
+      {{ limbah.name }}
+        <img [src]="limbah.imageUrl" alt="">
+    </ion-card-header>
+    <ion-card-content>
+      Deskripsi : {{ limbah.limbahDescription }}
+    </ion-card-content>
+  </ion-card>
+  </ion-slide>
+  </ion-slides>
+
+<ng-template #showIfNoData>
+<p>Tidak ada data</p>
+</ng-template>
+</ion-content>
+
+<style>
+ion-slides {
+  height: 55%;
+}
+
+.swiper-slide {
+  display: block;
+}
+
+.swiper-slide h2 {
+  margin-top: 1rem;
+}
+
+.swiper-slide img {
+  max-height: 100%;
+  max-width: 100%;
+  margin: 10px 0 2px;
+  pointer-events: none;
+}
+
+b {
+  font-weight: 500;
+}
+
+p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ion-color-step-600, #60646b);
+}
+
+
+</style>

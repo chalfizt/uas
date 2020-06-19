@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detail Product</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="warning"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ (service | async)?.serviceName }}</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+        <img [src]="(service| async)?.imageUrl" alt=""> 
+    </ion-card-header>
+  </ion-card>  
+  <h3>Service</h3>
+  <p>
+    Client {{ (service | async)?.serviceName }} dengan nama {{ (service |
+    async)?.penyumbang }}.
+  </p>
+
+  <h3>Type</h3>
+  <p>
+    Tipe {{ (service | async)?.jenis }} 
+  </p>
+
+  <h3>Desciption</h3>
+  <p>
+    {{ (service | async)?.serviceDescription }}
+  </p>
+  
+</ion-content>
+<ion-button color="warning"  shape="round"  (click)="deleteService()">
+  Delete
+</ion-button>

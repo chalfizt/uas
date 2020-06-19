@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="warning"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Forget Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <section>
+      <ion-button expand="block" color="warning" fill="outline" (click)="reset()">Reset Password</ion-button>
+    </section>
+  </ion-list>
+</ion-content>

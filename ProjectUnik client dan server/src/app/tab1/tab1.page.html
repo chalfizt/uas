@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List Service</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button  routerLink="/create">
+        <ion-icon  color="warning" slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar></ion-searchbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="dark">
+
+<ion-slides [options]="sliderConfig">
+<ion-slide *ngFor="let service of serviceList | async"
+routerLink="/detail/{{service.id}}">
+  <ion-card>
+  <ion-card-header>
+    {{ service.name }}
+      <img [src]="service.imageUrl" alt="">
+  </ion-card-header>
+  <ion-card-content>
+    {{ service.serviceDescription }}
+  </ion-card-content>
+</ion-card>
+</ion-slide>
+</ion-slides>
+<h4>Popular Items</h4>
+
+<ion-list *ngFor="let service of serviceList | async"
+routerLink="/detail/{{service.id}}">
+<ion-item>
+  <ion-thumbnail slot="start">
+    <img [src]="service.imageUrl" alt="">
+  </ion-thumbnail>
+  {{ service.name }}
+</ion-item>
+</ion-list>
+
+
+
+
+
+<ng-template #showIfNoData>
+<p>Tidak ada data</p>
+</ng-template>
+</ion-content>
+
+<style>
+  ion-slides {
+    height: 55%;
+  }
+  
+  .swiper-slide h2 {
+    margin-top: 1rem;
+  }
+  
+  .swiper-slide img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 15px 0 2px;
+    pointer-events: none;
+  }
+  
+  b {
+    font-weight: 500;
+  }
+  
+  p {
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ion-color-step-600, #000000);
+  }
+  
+  
+  </style>
